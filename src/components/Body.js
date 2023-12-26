@@ -3,6 +3,7 @@ import RestaurantCard from "./RestaurantCard";
 import { useState, useEffect, Fragment } from "react";
 import axios from 'axios';
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom/dist";
 
 function filterData(searchText, restaurants) {
   const filterData = restaurants.filter((restaurant) =>
@@ -44,10 +45,7 @@ const Body = () => {
           params: {
             lat: 28.5355161,
             lng: 77.3910265
-          },
-          headers: {
-            'Access-Control-Allow-Origin': '*',
-          },
+          }
         });
         const data = response.data.data.cards[5].card.card.gridElements.infoWithStyle.restaurants;
         setRestaurants(data)
@@ -79,7 +77,9 @@ const Body = () => {
       <div className="restaurant-list">
         {filteredRestaurants?.length > 0 ? filteredRestaurants.map((restaurant) => {
           return (
+            <Link key={restaurant?.info?.id} to={"/restaurants/"+restaurant?.info?.id}>
             <RestaurantCard key={restaurant?.info?.id} {...restaurant.info} />
+            </Link>
           );
         }) : (haveResults ? <Fragment>
           <Shimmer />

@@ -5,7 +5,7 @@ const Footer = () => {
         Created with
         <i className="fa-solid fa-heart"></i>
         By
-        <a href="https://www.linkedin.com/in/arman-al1/" target="_blank">
+        <a href="https://www.linkedin.com/in/arman-al1/" target="_blank" >
           Arman Ali
         </a>
         <i className="fa-solid fa-copyright"></i>2024

@@ -1,14 +1,17 @@
 import React from "react";
 import Header from "./components/Header";
-import Body from "./components/Body";
 import Footer from "./components/Footer";
 import "./App.css";
+import { Outlet } from "react-router-dom";
+
 
 export default function App() {
     return (
         <React.Fragment>
             <Header />
-            <Body />
+            <div className="body">
+            <Outlet />
+            </div>
             <Footer />
         </React.Fragment>
     )
